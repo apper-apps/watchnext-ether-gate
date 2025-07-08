@@ -17,6 +17,7 @@ const HomePage = () => {
   const [selectedContent, setSelectedContent] = useState(null);
   const [filters, setFilters] = useState({});
   const [searchHistory, setSearchHistory] = useState([]);
+  const [lastSearchCriteria, setLastSearchCriteria] = useState(null);
 
   useEffect(() => {
     // Load search history from localStorage
@@ -44,6 +45,32 @@ const HomePage = () => {
     } catch (err) {
       setError(err.message || "Failed to search content");
       toast.error("Search failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+};
+
+  const handleAdvancedSearch = async (query, criteria) => {
+    if (!query.trim()) return;
+
+    try {
+      setLoading(true);
+      setError(null);
+      setSearchQuery(query);
+      setLastSearchCriteria(criteria);
+
+      const results = await SearchService.searchAdvanced(query, criteria);
+      setSearchResults(results);
+
+      // Update search history
+      const newHistory = [query, ...searchHistory.filter(h => h !== query)].slice(0, 10);
+      setSearchHistory(newHistory);
+      localStorage.setItem("searchHistory", JSON.stringify(newHistory));
+
+      toast.success(`Found ${results.length} results with advanced search`);
+    } catch (err) {
+      setError(err.message || "Failed to search content");
+      toast.error("Advanced search failed. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -88,26 +115,33 @@ const HomePage = () => {
         <div className="flex gap-8">
           {/* Main Content */}
           <div className="flex-1">
-            <SearchHeader 
+<SearchHeader 
               onSearch={handleSearch} 
+              onAdvancedSearch={handleAdvancedSearch}
               searchQuery={searchQuery}
             />
-
             {searchQuery && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="mb-8"
               >
-                <div className="flex items-center gap-4 mb-6">
+<div className="flex items-center gap-4 mb-6">
                   <h2 className="text-2xl font-display font-bold text-white">
                     Results for "{searchQuery}"
                   </h2>
-                  {searchResults.length > 0 && (
-                    <span className="text-gray-400">
-                      {searchResults.length} found
-                    </span>
-                  )}
+                  <div className="flex items-center gap-4">
+                    {searchResults.length > 0 && (
+                      <span className="text-gray-400">
+                        {searchResults.length} found
+                      </span>
+                    )}
+                    {lastSearchCriteria && (
+                      <span className="text-xs text-primary bg-primary/10 px-2 py-1 rounded-full">
+                        Advanced ({lastSearchCriteria.length} criteria)
+                      </span>
+                    )}
+                  </div>
                 </div>
 
                 <FilterBar 

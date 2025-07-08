@@ -1,8 +1,23 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import SearchBar from "@/components/molecules/SearchBar";
+import SearchBuilder from "@/components/organisms/SearchBuilder";
+import Button from "@/components/atoms/Button";
 import ApperIcon from "@/components/ApperIcon";
 
-const SearchHeader = ({ onSearch, searchQuery }) => {
+const SearchHeader = ({ onSearch, searchQuery, onAdvancedSearch }) => {
+  const [showAdvancedSearch, setShowAdvancedSearch] = useState(false);
+  const [previewQuery, setPreviewQuery] = useState("");
+
+  const handleAdvancedSearch = (query, criteria) => {
+    setShowAdvancedSearch(false);
+    onAdvancedSearch?.(query, criteria);
+  };
+
+  const handlePreview = (query) => {
+    setPreviewQuery(query);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -34,11 +49,23 @@ const SearchHeader = ({ onSearch, searchQuery }) => {
         </motion.p>
       </div>
 
-      {/* Search Bar */}
-      <div className="max-w-3xl mx-auto">
+{/* Search Bar */}
+      <div className="max-w-3xl mx-auto space-y-4">
         <SearchBar onSearch={onSearch} />
+        
+        {/* Advanced Search Button */}
+        <div className="flex justify-center">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setShowAdvancedSearch(true)}
+            className="text-gray-400 hover:text-white border border-gray-700 hover:border-primary/50"
+          >
+            <ApperIcon name="Settings" size={16} className="mr-2" />
+            Advanced Search Builder
+          </Button>
+        </div>
       </div>
-
       {/* Quick Search Examples */}
       {!searchQuery && (
         <motion.div
@@ -65,7 +92,17 @@ const SearchHeader = ({ onSearch, searchQuery }) => {
             ))}
           </div>
         </motion.div>
-      )}
+)}
+
+      {/* Advanced Search Modal */}
+      <AnimatePresence>
+        <SearchBuilder
+          isOpen={showAdvancedSearch}
+          onClose={() => setShowAdvancedSearch(false)}
+          onSearch={handleAdvancedSearch}
+          onPreview={handlePreview}
+        />
+      </AnimatePresence>
     </motion.div>
   );
 };

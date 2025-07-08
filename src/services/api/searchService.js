@@ -89,6 +89,44 @@ export const SearchService = {
       );
     }
     
+return results;
+  },
+
+  async searchAdvanced(query, criteria) {
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
+    const allContent = await ContentService.getAll();
+    let results = [...allContent];
+    
+    // Apply criteria-based filtering
+    criteria.forEach(criterion => {
+      switch (criterion.type) {
+        case 'genre':
+          results = results.filter(item => 
+            item.genres.includes(criterion.value)
+          );
+          break;
+        case 'year':
+          results = results.filter(item => 
+            item.year.toString() === criterion.value.toString()
+          );
+          break;
+        case 'rating':
+          results = results.filter(item => 
+            item.rating >= parseFloat(criterion.value)
+          );
+          break;
+        case 'platform':
+          results = results.filter(item => 
+            item.platforms.includes(criterion.value)
+          );
+          break;
+      }
+    });
+    
+    // Sort by popularity if no specific sorting criteria
+    results = results.sort((a, b) => b.popularity - a.popularity);
+    
     return results;
   },
 

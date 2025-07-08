@@ -150,5 +150,74 @@ return results;
     return suggestions.filter(suggestion => 
       suggestion.toLowerCase().includes(lowerQuery)
     );
-  }
+}
 };
+
+/**
+ * REAL DATA INTEGRATION GUIDE
+ * 
+ * To connect this application to live data sources, replace the mock implementations
+ * above with actual API calls. The service interface should remain unchanged to
+ * maintain compatibility with existing components.
+ * 
+ * RECOMMENDED APPROACH:
+ * 
+ * 1. API Configuration:
+ *    - Add environment variables in .env for API endpoints
+ *    - Example: VITE_API_BASE_URL=https://api.yourservice.com
+ *    - Use different endpoints for development/staging/production
+ * 
+ * 2. Authentication:
+ *    - Implement API key or OAuth token management
+ *    - Add authorization headers to all requests
+ *    - Handle token refresh and expiration
+ * 
+ * 3. HTTP Client Setup:
+ *    - Add axios or fetch wrapper with base configuration
+ *    - Include error handling, retry logic, and timeout settings
+ *    - Implement request/response interceptors for auth and logging
+ * 
+ * 4. Error Handling:
+ *    - Map API error codes to user-friendly messages
+ *    - Implement fallback behavior for network failures
+ *    - Add retry mechanisms for transient failures
+ * 
+ * 5. Data Transformation:
+ *    - Map API response fields to match expected data structure
+ *    - Ensure Id field is integer and follows application conventions
+ *    - Handle missing or null values appropriately
+ * 
+ * EXAMPLE IMPLEMENTATIONS:
+ * 
+ * async search(query) {
+ *   try {
+ *     const response = await fetch(`${API_BASE_URL}/search?q=${encodeURIComponent(query)}`, {
+ *       headers: {
+ *         'Authorization': `Bearer ${getAuthToken()}`,
+ *         'Content-Type': 'application/json'
+ *       }
+ *     });
+ *     
+ *     if (!response.ok) {
+ *       throw new Error(`Search failed: ${response.status}`);
+ *     }
+ *     
+ *     const data = await response.json();
+ *     return data.results.map(item => ({
+ *       Id: parseInt(item.id),
+ *       title: item.title,
+ *       // ... map other fields
+ *     }));
+ *   } catch (error) {
+ *     console.error('Search API error:', error);
+ *     throw new Error('Unable to search content. Please try again.');
+ *   }
+ * }
+ * 
+ * DEPLOYMENT CONSIDERATIONS:
+ * - Configure CORS settings on your API server
+ * - Set up proper SSL certificates for HTTPS
+ * - Implement rate limiting and request throttling
+ * - Add monitoring and analytics for API usage
+ * - Test with different network conditions and device types
+ */

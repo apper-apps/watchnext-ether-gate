@@ -4,7 +4,7 @@ import Button from "@/components/atoms/Button";
 import Badge from "@/components/atoms/Badge";
 import ApperIcon from "@/components/ApperIcon";
 
-const FilterBar = ({ onFiltersChange, activeFilters = {} }) => {
+const FilterBar = ({ onFiltersChange, activeFilters = {}, onClearSearch }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const genres = [
@@ -48,8 +48,11 @@ const FilterBar = ({ onFiltersChange, activeFilters = {} }) => {
     onFiltersChange(newFilters);
   };
 
-  const clearFilters = () => {
+const clearFilters = () => {
     onFiltersChange({});
+    if (onClearSearch) {
+      onClearSearch();
+    }
   };
 
   const getActiveFilterCount = () => {

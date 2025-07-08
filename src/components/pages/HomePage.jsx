@@ -6,6 +6,8 @@ import FilterBar from "@/components/molecules/FilterBar";
 import ContentGrid from "@/components/organisms/ContentGrid";
 import ContentDetail from "@/components/organisms/ContentDetail";
 import TrendingSidebar from "@/components/organisms/TrendingSidebar";
+import Button from "@/components/atoms/Button";
+import ApperIcon from "@/components/ApperIcon";
 import { ContentService } from "@/services/api/contentService";
 import { SearchService } from "@/services/api/searchService";
 
@@ -92,6 +94,14 @@ const HomePage = () => {
     if (filterCount > 0) {
       toast.info(`Applied ${filterCount} filter${filterCount > 1 ? 's' : ''}`);
     }
+};
+
+  const clearSearch = () => {
+    setSearchQuery("");
+    setSearchResults([]);
+    setFilters({});
+    setLastSearchCriteria(null);
+    toast.info("Search and filters cleared");
   };
 
   const handleRetry = () => {
@@ -125,28 +135,40 @@ const HomePage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="mb-8"
-              >
-<div className="flex items-center gap-4 mb-6">
-                  <h2 className="text-2xl font-display font-bold text-white">
-                    Results for "{searchQuery}"
-                  </h2>
+>
+                <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-4">
-                    {searchResults.length > 0 && (
-                      <span className="text-gray-400">
-                        {searchResults.length} found
-                      </span>
-                    )}
-                    {lastSearchCriteria && (
-                      <span className="text-xs text-primary bg-primary/10 px-2 py-1 rounded-full">
-                        Advanced ({lastSearchCriteria.length} criteria)
-                      </span>
-                    )}
+                    <h2 className="text-2xl font-display font-bold text-white">
+                      Results for "{searchQuery}"
+                    </h2>
+                    <div className="flex items-center gap-4">
+                      {searchResults.length > 0 && (
+                        <span className="text-gray-400">
+                          {searchResults.length} found
+                        </span>
+                      )}
+                      {lastSearchCriteria && (
+                        <span className="text-xs text-primary bg-primary/10 px-2 py-1 rounded-full">
+                          Advanced ({lastSearchCriteria.length} criteria)
+                        </span>
+                      )}
+                    </div>
                   </div>
+                  
+                  <Button
+                    variant="outline"
+                    onClick={clearSearch}
+                    className="text-gray-400 hover:text-white border-gray-600 hover:border-gray-500"
+                  >
+                    <ApperIcon name="X" size={16} className="mr-2" />
+                    Clear Search
+                  </Button>
                 </div>
 
                 <FilterBar 
                   onFiltersChange={handleFiltersChange}
                   activeFilters={filters}
+                  onClearSearch={clearSearch}
                 />
               </motion.div>
             )}

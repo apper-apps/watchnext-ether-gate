@@ -1,0 +1,298 @@
+[
+  {
+    "Id": 1,
+    "title": "The Matrix",
+    "type": "movie",
+    "year": 1999,
+    "genres": ["Action", "Sci-Fi", "Thriller"],
+    "rating": 8.7,
+    "posterUrl": "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400&h=600&fit=crop",
+    "synopsis": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+    "cast": [
+      {"name": "Keanu Reeves", "character": "Neo"},
+      {"name": "Laurence Fishburne", "character": "Morpheus"},
+      {"name": "Carrie-Anne Moss", "character": "Trinity"}
+    ],
+    "platforms": [
+      {"name": "Netflix", "available": true, "link": "https://netflix.com", "price": null},
+      {"name": "Prime Video", "available": true, "link": "https://primevideo.com", "price": "$3.99"}
+    ],
+    "popularity": 9.2
+  },
+  {
+    "Id": 2,
+    "title": "Stranger Things",
+    "type": "series",
+    "year": 2016,
+    "genres": ["Drama", "Horror", "Sci-Fi"],
+    "rating": 8.8,
+    "posterUrl": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=600&fit=crop",
+    "synopsis": "When a young boy disappears, his mother, a police chief and his friends must confront terrifying supernatural forces in order to get him back.",
+    "cast": [
+      {"name": "Millie Bobby Brown", "character": "Eleven"},
+      {"name": "Finn Wolfhard", "character": "Mike Wheeler"},
+      {"name": "David Harbour", "character": "Jim Hopper"}
+    ],
+    "platforms": [
+      {"name": "Netflix", "available": true, "link": "https://netflix.com", "price": null}
+    ],
+    "popularity": 9.5
+  },
+  {
+    "Id": 3,
+    "title": "Jumanji: Welcome to the Jungle",
+    "type": "movie",
+    "year": 2017,
+    "genres": ["Action", "Adventure", "Comedy"],
+    "rating": 7.0,
+    "posterUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=400&h=600&fit=crop",
+    "synopsis": "Four teenagers are sucked into a magical video game, and the only way they can escape is to work together to finish the game.",
+    "cast": [
+      {"name": "Dwayne Johnson", "character": "Dr. Smolder Bravestone"},
+      {"name": "Kevin Hart", "character": "Mouse Finbar"},
+      {"name": "Jack Black", "character": "Professor Shelly Oberon"}
+    ],
+    "platforms": [
+      {"name": "Prime Video", "available": true, "link": "https://primevideo.com", "price": "$2.99"},
+      {"name": "Hulu", "available": true, "link": "https://hulu.com", "price": null}
+    ],
+    "popularity": 8.1
+  },
+  {
+    "Id": 4,
+    "title": "The Big Bang Theory",
+    "type": "series",
+    "year": 2007,
+    "genres": ["Comedy", "Romance"],
+    "rating": 8.2,
+    "posterUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop",
+    "synopsis": "A woman who moves into an apartment across the hall from two brilliant but socially awkward physicists shows them how little they know about life outside of the laboratory.",
+    "cast": [
+      {"name": "Jim Parsons", "character": "Sheldon Cooper"},
+      {"name": "Johnny Galecki", "character": "Leonard Hofstadter"},
+      {"name": "Kaley Cuoco", "character": "Penny"}
+    ],
+    "platforms": [
+      {"name": "HBO Max", "available": true, "link": "https://hbomax.com", "price": null},
+      {"name": "Paramount+", "available": true, "link": "https://paramountplus.com", "price": null}
+    ],
+    "popularity": 8.7
+  },
+  {
+    "Id": 5,
+    "title": "Avengers: Endgame",
+    "type": "movie",
+    "year": 2019,
+    "genres": ["Action", "Adventure", "Drama"],
+    "rating": 8.4,
+    "posterUrl": "https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=400&h=600&fit=crop",
+    "synopsis": "After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more.",
+    "cast": [
+      {"name": "Robert Downey Jr.", "character": "Tony Stark / Iron Man"},
+      {"name": "Chris Evans", "character": "Steve Rogers / Captain America"},
+      {"name": "Mark Ruffalo", "character": "Bruce Banner / Hulk"}
+    ],
+    "platforms": [
+      {"name": "Disney+", "available": true, "link": "https://disneyplus.com", "price": null},
+      {"name": "Prime Video", "available": true, "link": "https://primevideo.com", "price": "$3.99"}
+    ],
+    "popularity": 9.8
+  },
+  {
+    "Id": 6,
+    "title": "Breaking Bad",
+    "type": "series",
+    "year": 2008,
+    "genres": ["Crime", "Drama", "Thriller"],
+    "rating": 9.5,
+    "posterUrl": "https://images.unsplash.com/photo-1512149177596-f817c7ef5d4c?w=400&h=600&fit=crop",
+    "synopsis": "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine to secure his family's future.",
+    "cast": [
+      {"name": "Bryan Cranston", "character": "Walter White"},
+      {"name": "Aaron Paul", "character": "Jesse Pinkman"},
+      {"name": "Anna Gunn", "character": "Skyler White"}
+    ],
+    "platforms": [
+      {"name": "Netflix", "available": true, "link": "https://netflix.com", "price": null},
+      {"name": "Prime Video", "available": true, "link": "https://primevideo.com", "price": "$1.99"}
+    ],
+    "popularity": 9.9
+  },
+  {
+    "Id": 7,
+    "title": "Inception",
+    "type": "movie",
+    "year": 2010,
+    "genres": ["Action", "Sci-Fi", "Thriller"],
+    "rating": 8.8,
+    "posterUrl": "https://images.unsplash.com/photo-1489599735188-3a96b6c8c623?w=400&h=600&fit=crop",
+    "synopsis": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+    "cast": [
+      {"name": "Leonardo DiCaprio", "character": "Dom Cobb"},
+      {"name": "Marion Cotillard", "character": "Mal"},
+      {"name": "Tom Hardy", "character": "Eames"}
+    ],
+    "platforms": [
+      {"name": "HBO Max", "available": true, "link": "https://hbomax.com", "price": null},
+      {"name": "Apple TV+", "available": true, "link": "https://tv.apple.com", "price": "$4.99"}
+    ],
+    "popularity": 9.3
+  },
+  {
+    "Id": 8,
+    "title": "The Office",
+    "type": "series",
+    "year": 2005,
+    "genres": ["Comedy"],
+    "rating": 8.9,
+    "posterUrl": "https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=400&h=600&fit=crop",
+    "synopsis": "A mockumentary on a group of typical office workers, where the workday consists of ego clashes, inappropriate behavior, and tedium.",
+    "cast": [
+      {"name": "Steve Carell", "character": "Michael Scott"},
+      {"name": "John Krasinski", "character": "Jim Halpert"},
+      {"name": "Jenna Fischer", "character": "Pam Beesly"}
+    ],
+    "platforms": [
+      {"name": "Peacock", "available": true, "link": "https://peacocktv.com", "price": null},
+      {"name": "Prime Video", "available": true, "link": "https://primevideo.com", "price": "$2.99"}
+    ],
+    "popularity": 9.1
+  },
+  {
+    "Id": 9,
+    "title": "Dune",
+    "type": "movie",
+    "year": 2021,
+    "genres": ["Action", "Adventure", "Drama", "Sci-Fi"],
+    "rating": 8.1,
+    "posterUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=600&fit=crop",
+    "synopsis": "Feature adaptation of Frank Herbert's science fiction novel about the son of a noble family entrusted with the protection of the most valuable asset in the galaxy.",
+    "cast": [
+      {"name": "Timothée Chalamet", "character": "Paul Atreides"},
+      {"name": "Rebecca Ferguson", "character": "Lady Jessica"},
+      {"name": "Oscar Isaac", "character": "Duke Leto Atreides"}
+    ],
+    "platforms": [
+      {"name": "HBO Max", "available": true, "link": "https://hbomax.com", "price": null},
+      {"name": "Prime Video", "available": true, "link": "https://primevideo.com", "price": "$5.99"}
+    ],
+    "popularity": 8.9
+  },
+  {
+    "Id": 10,
+    "title": "Game of Thrones",
+    "type": "series",
+    "year": 2011,
+    "genres": ["Action", "Adventure", "Drama", "Fantasy"],
+    "rating": 9.3,
+    "posterUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=600&fit=crop",
+    "synopsis": "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.",
+    "cast": [
+      {"name": "Emilia Clarke", "character": "Daenerys Targaryen"},
+      {"name": "Peter Dinklage", "character": "Tyrion Lannister"},
+      {"name": "Kit Harington", "character": "Jon Snow"}
+    ],
+    "platforms": [
+      {"name": "HBO Max", "available": true, "link": "https://hbomax.com", "price": null}
+    ],
+    "popularity": 9.4
+  },
+  {
+    "Id": 11,
+    "title": "Fast & Furious Presents: Hobbs & Shaw",
+    "type": "movie",
+    "year": 2019,
+    "genres": ["Action", "Adventure", "Thriller"],
+    "rating": 6.5,
+    "posterUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=600&fit=crop",
+    "synopsis": "Lawman Luke Hobbs and outcast Deckard Shaw form an unlikely alliance when a cyber-genetically enhanced villain threatens the future of humanity.",
+    "cast": [
+      {"name": "Dwayne Johnson", "character": "Luke Hobbs"},
+      {"name": "Jason Statham", "character": "Deckard Shaw"},
+      {"name": "Idris Elba", "character": "Brixton Lore"}
+    ],
+    "platforms": [
+      {"name": "Netflix", "available": true, "link": "https://netflix.com", "price": null},
+      {"name": "Prime Video", "available": true, "link": "https://primevideo.com", "price": "$3.99"}
+    ],
+    "popularity": 7.8
+  },
+  {
+    "Id": 12,
+    "title": "The Mandalorian",
+    "type": "series",
+    "year": 2019,
+    "genres": ["Action", "Adventure", "Sci-Fi"],
+    "rating": 8.7,
+    "posterUrl": "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=400&h=600&fit=crop",
+    "synopsis": "The travels of a lone bounty hunter in the outer reaches of the galaxy, far from the authority of the New Republic.",
+    "cast": [
+      {"name": "Pedro Pascal", "character": "Din Djarin"},
+      {"name": "Gina Carano", "character": "Cara Dune"},
+      {"name": "Carl Weathers", "character": "Greef Karga"}
+    ],
+    "platforms": [
+      {"name": "Disney+", "available": true, "link": "https://disneyplus.com", "price": null}
+    ],
+    "popularity": 9.0
+  },
+  {
+    "Id": 13,
+    "title": "Oppenheimer",
+    "type": "movie",
+    "year": 2023,
+    "genres": ["Biography", "Drama", "History"],
+    "rating": 8.4,
+    "posterUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop",
+    "synopsis": "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb.",
+    "cast": [
+      {"name": "Cillian Murphy", "character": "J. Robert Oppenheimer"},
+      {"name": "Emily Blunt", "character": "Katherine Oppenheimer"},
+      {"name": "Robert Downey Jr.", "character": "Lewis Strauss"}
+    ],
+    "platforms": [
+      {"name": "Prime Video", "available": true, "link": "https://primevideo.com", "price": "$6.99"},
+      {"name": "Apple TV+", "available": true, "link": "https://tv.apple.com", "price": "$5.99"}
+    ],
+    "popularity": 9.1
+  },
+  {
+    "Id": 14,
+    "title": "Wednesday",
+    "type": "series",
+    "year": 2022,
+    "genres": ["Comedy", "Crime", "Horror"],
+    "rating": 8.1,
+    "posterUrl": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=600&fit=crop",
+    "synopsis": "Follows Wednesday Addams' years as a student at Nevermore Academy, where she attempts to master her emerging psychic ability, thwart a monstrous killing spree that has terrorized the local town.",
+    "cast": [
+      {"name": "Jenna Ortega", "character": "Wednesday Addams"},
+      {"name": "Hunter Doohan", "character": "Tyler Galpin"},
+      {"name": "Emma Myers", "character": "Enid Sinclair"}
+    ],
+    "platforms": [
+      {"name": "Netflix", "available": true, "link": "https://netflix.com", "price": null}
+    ],
+    "popularity": 8.8
+  },
+  {
+    "Id": 15,
+    "title": "Everything Everywhere All at Once",
+    "type": "movie",
+    "year": 2022,
+    "genres": ["Action", "Adventure", "Comedy"],
+    "rating": 7.8,
+    "posterUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=400&h=600&fit=crop",
+    "synopsis": "An aging Chinese immigrant is swept up into an insane adventure in which she alone can save existence by exploring other universes and connecting with the lives she could have lived.",
+    "cast": [
+      {"name": "Michelle Yeoh", "character": "Evelyn Quan Wang"},
+      {"name": "Stephanie Hsu", "character": "Joy Wang / Jobu Tupaki"},
+      {"name": "Ke Huy Quan", "character": "Waymond Wang"}
+    ],
+    "platforms": [
+      {"name": "Prime Video", "available": true, "link": "https://primevideo.com", "price": "$4.99"},
+      {"name": "Paramount+", "available": true, "link": "https://paramountplus.com", "price": null}
+    ],
+    "popularity": 8.5
+  }
+]

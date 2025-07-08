@@ -7,6 +7,18 @@ function Login() {
   const { isInitialized } = useContext(AuthContext);
   
 useEffect(() => {
+    // Global error handler to suppress ResizeObserver errors
+    const handleResizeObserverError = (event) => {
+      if (event.message && event.message.includes('ResizeObserver loop completed with undelivered notifications')) {
+        event.preventDefault();
+        event.stopPropagation();
+        return true;
+      }
+    };
+    
+    // Add global error handler for ResizeObserver errors
+    window.addEventListener('error', handleResizeObserverError);
+    
     if (isInitialized) {
       // Show login UI in this component
       const { ApperUI } = window.ApperSDK;
@@ -15,15 +27,13 @@ useEffect(() => {
     
     // Cleanup function to prevent ResizeObserver errors
     return () => {
-      // Disconnect any ResizeObserver instances that may have been created
-      // by the Apper SDK to prevent "ResizeObserver loop completed with undelivered notifications" errors
-      if (window.ResizeObserver) {
-        const observers = document.querySelectorAll('#authentication *');
-        observers.forEach(element => {
-          if (element._resizeObserver) {
-            element._resizeObserver.disconnect();
-          }
-        });
+      // Remove global error handler
+      window.removeEventListener('error', handleResizeObserverError);
+      
+      // Clear authentication container to prevent memory leaks
+      const authContainer = document.getElementById('authentication');
+      if (authContainer) {
+        authContainer.innerHTML = '';
       }
     };
   }, [isInitialized]);

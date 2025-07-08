@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 import SearchHeader from "@/components/organisms/SearchHeader";
 import FilterBar from "@/components/molecules/FilterBar";
 import ContentGrid from "@/components/organisms/ContentGrid";
@@ -10,7 +11,7 @@ import Button from "@/components/atoms/Button";
 import ApperIcon from "@/components/ApperIcon";
 import { ContentService } from "@/services/api/contentService";
 import { SearchService } from "@/services/api/searchService";
-
+import { AuthContext } from "../../App";
 const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -119,10 +120,44 @@ const HomePage = () => {
     setSelectedContent(null);
   };
 
+const { user, isAuthenticated } = useSelector((state) => state.user);
+  const authMethods = useContext(AuthContext);
+
+  // Redirect to login if not authenticated
+  useEffect(() => {
+    if (!isAuthenticated) {
+      // Will be handled by App.jsx authentication flow
+      return;
+    }
+  }, [isAuthenticated]);
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-gradient-dark flex items-center justify-center">
+        <div className="text-white text-center">
+          <div className="mb-4">Please log in to access WatchNext AI</div>
+          <div className="animate-spin w-8 h-8 border-2 border-primary border-t-transparent rounded-full mx-auto"></div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-dark">
-      <div className="container mx-auto px-4 py-8">
         <div className="flex gap-8">
+<div className="min-h-screen bg-gradient-dark">
+      {/* Logout Button */}
+      <div className="flex justify-end p-4">
+        <Button
+          variant="outline"
+          onClick={authMethods.logout}
+          className="text-gray-400 hover:text-white border-gray-600 hover:border-gray-500"
+        >
+          <ApperIcon name="LogOut" size={16} className="mr-2" />
+          Logout
+        </Button>
+      </div>
+      
+      <div className="container mx-auto px-4 py-8">
           {/* Main Content */}
           <div className="flex-1">
 <SearchHeader 

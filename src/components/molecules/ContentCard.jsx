@@ -81,18 +81,35 @@ const ContentCard = ({ content, onSelect, className }) => {
             <span className="capitalize">{content.type}</span>
           </div>
 
-          {/* Genres */}
+{/* Genres */}
           <div className="flex flex-wrap gap-1">
-            {content.genres.slice(0, 2).map((genre, index) => (
-              <Badge key={index} variant="secondary" className="text-xs">
-                {genre}
-              </Badge>
-            ))}
-            {content.genres.length > 2 && (
-              <Badge variant="secondary" className="text-xs">
-                +{content.genres.length - 2}
-              </Badge>
-            )}
+            {(() => {
+              // Handle both string (from database) and array (from mock data) formats
+              const genresArray = Array.isArray(content.genres) 
+                ? content.genres 
+                : typeof content.genres === 'string' 
+                  ? content.genres.split(',').map(g => g.trim()).filter(g => g) 
+                  : [];
+              
+              return genresArray.slice(0, 2).map((genre, index) => (
+                <Badge key={index} variant="secondary" className="text-xs">
+                  {genre}
+                </Badge>
+              ));
+            })()}
+            {(() => {
+              const genresArray = Array.isArray(content.genres) 
+                ? content.genres 
+                : typeof content.genres === 'string' 
+                  ? content.genres.split(',').map(g => g.trim()).filter(g => g) 
+                  : [];
+              
+              return genresArray.length > 2 && (
+                <Badge variant="secondary" className="text-xs">
+                  +{genresArray.length - 2}
+                </Badge>
+              );
+            })()}
           </div>
 
           {/* Streaming Platforms */}

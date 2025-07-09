@@ -112,23 +112,25 @@ const ContentCard = ({ content, onSelect, className }) => {
             })()}
           </div>
 
-          {/* Streaming Platforms */}
-          <div className="flex flex-wrap gap-1">
-            {content.platforms.slice(0, 3).map((platform, index) => (
-              <Badge
-                key={index}
-                variant={getPlatformBadgeVariant(platform.name)}
-                className="text-xs platform-badge"
-              >
-                {platform.name}
-              </Badge>
-            ))}
-            {content.platforms.length > 3 && (
-              <Badge variant="default" className="text-xs">
-                +{content.platforms.length - 3}
-              </Badge>
-            )}
-          </div>
+{/* Streaming Platforms */}
+          {content.platforms && Array.isArray(content.platforms) && content.platforms.length > 0 && (
+            <div className="flex flex-wrap gap-1">
+              {content.platforms.slice(0, 3).map((platform, index) => (
+                <Badge
+                  key={index}
+                  variant={getPlatformBadgeVariant(platform.name)}
+                  className="text-xs platform-badge"
+                >
+                  {platform.name}
+                </Badge>
+              ))}
+              {content.platforms.length > 3 && (
+                <Badge variant="default" className="text-xs">
+                  +{content.platforms.length - 3}
+                </Badge>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </motion.div>
